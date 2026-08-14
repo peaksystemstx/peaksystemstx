@@ -1,0 +1,8 @@
+# Keep the old Squarespace links working after the move.
+# (Read automatically by Netlify and Cloudflare Pages; harmless on other hosts.)
+#
+# Note: /about, /services and /contact already resolve to about.html etc.
+# automatically, so only the two pages that were renamed need a rule here.
+
+/home        /            301
+/our-work    /work.html   301
