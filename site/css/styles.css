@@ -264,7 +264,7 @@ p  { margin: 0 0 1rem; }
 .hero { position: relative; color: #fff; isolation: isolate; background-color: #0a1930; }
 .hero::before {
   content: ""; position: absolute; inset: 0; z-index: -2;
-  background-image: url("../images/hero-home-driveway.webp");
+  background-image: url("../images/solar-panel-cleaning.webp");
   background-size: cover; background-position: center;
 }
 .hero::after {
@@ -309,6 +309,8 @@ p  { margin: 0 0 1rem; }
   gap: clamp(1rem, 2.5vw, 1.6rem);
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
+
+.grid--2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
 .card {
   display: flex; flex-direction: column;
