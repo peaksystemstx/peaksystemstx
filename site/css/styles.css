@@ -274,7 +274,12 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(120deg, rgba(9, 25, 48, .90) 0%, rgba(9, 25, 48, .78) 55%, rgba(9, 25, 48, .60) 100%);
 }
-.hero-inner { padding-block: clamp(3.5rem, 9vw, 7rem); max-width: 42rem; }
+/* The hero is a .container, so it keeps the container's width and padding —
+   that puts its left edge on the same line as the logo and nav above it.
+   Capping the children instead of the container is what holds the copy to a
+   readable measure without pulling the whole block into the middle. */
+.hero-inner { padding-block: clamp(3.5rem, 9vw, 7rem); }
+.hero-inner > * { max-width: 42rem; }
 .hero h1 { color: #fff; }
 .hero p { color: #e6eefb; font-size: 1.2rem; }
 .hero .btn-row { margin-top: 1.6rem; }
