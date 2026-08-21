@@ -185,13 +185,8 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
 }
 
 /* Logo mark + wordmark, built in HTML/SVG so it stays crisp at any size */
-.brand-logo { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--brand); }
-.brand-logo:hover { color: var(--brand); }
-.brand-logo .mark { width: 38px; height: 38px; flex: none; }
-.brand-logo { flex: none; }
-.brand-logo .word { display: flex; flex-direction: column; line-height: 1; white-space: nowrap; }
-.brand-logo .word b { font-size: 1.15rem; font-weight: 800; letter-spacing: .02em; }
-.brand-logo .word span { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.brand-logo { display: inline-flex; align-items: center; flex: none; }
+.brand-logo .logo-img { height: 40px; width: auto; display: block; }
 
 .nav-links { display: flex; align-items: center; gap: .25rem; list-style: none; margin: 0; padding: 0; }
 /* Regular text links in the nav. Buttons (.btn) keep their own colors, so we
@@ -474,9 +469,7 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
 
   /* Header: a shorter bar leaves more of the screen for the hero. */
   .nav { min-height: 58px; }
-  .brand-logo .mark { width: 32px; height: 32px; }
-  .brand-logo .word b { font-size: 1rem; }
-  .brand-logo .word span { font-size: .55rem; letter-spacing: .12em; }
+  .brand-logo .logo-img { height: 32px; }
   .nav-toggle { padding: .35rem .6rem; font-size: .95rem; }
 
   /* Hero: tighter type and padding so the call to action stays above the fold. */
