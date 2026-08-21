@@ -38,8 +38,10 @@
   });
 
   // If the window is widened past the mobile breakpoint, reset to closed
-  // so the desktop layout is never left in the "open" state.
-  var mq = window.matchMedia("(min-width: 841px)");
+  // so the desktop layout is never left in the "open" state. This must match
+  // the max-width: 900px breakpoint in styles.css — when it didn't, the menu
+  // refused to stay open between 841px and 900px.
+  var mq = window.matchMedia("(min-width: 901px)");
   (mq.addEventListener ? mq.addEventListener.bind(mq, "change") : mq.addListener.bind(mq))(function () {
     if (mq.matches) setOpen(false);
   });

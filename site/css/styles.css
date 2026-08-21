@@ -86,6 +86,9 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
 
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(1.15rem, 4vw, 2rem); }
 .section   { padding-block: var(--section-y); }
+/* The header is sticky, so an in-page link (#why-clean) would otherwise drop
+   its heading behind the bar. Keep the target clear of it. */
+[id] { scroll-margin-top: 5rem; }
 .section--tint { background: var(--surface); }
 .section--brand {
   background: linear-gradient(160deg, var(--brand), var(--brand-2));
@@ -442,3 +445,77 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
+
+/* ---------- Reason list --------------------------------------------------- */
+/* Three benefit statements that were previously plain paragraphs. They are a
+   list, so they're marked up as one — and the left rule plus a label on its
+   own line makes them scannable instead of a wall of text on a phone. */
+.reasons { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 1.1rem; }
+.reasons li { padding-left: 1rem; border-left: 3px solid var(--surface-2); }
+.reasons b { display: block; color: var(--brand); }
+
+/* ---------- Evidence callout & source links ------------------------------- */
+/* On the research page every claim is followed by its citation. The callout
+   separates "what the study found" from the surrounding explanation, and the
+   source line is sized down so a long paper title doesn't read as a heading. */
+.evidence {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  margin-bottom: .6rem;
+}
+.source { font-size: .92rem; line-height: 1.5; color: var(--muted); }
+.source a { color: var(--accent-ink); }
+
+/* ---------- Small-screen refinements -------------------------------------- */
+/* Everything below tunes the phone layout. The goal above the fold is that the
+   headline, one line of explanation and the "Text for a free estimate" button
+   all fit on screen without scrolling. */
+@media (max-width: 600px) {
+
+  /* Header: a shorter bar leaves more of the screen for the hero. */
+  .nav { min-height: 58px; }
+  .brand-logo .mark { width: 32px; height: 32px; }
+  .brand-logo .word b { font-size: 1rem; }
+  .brand-logo .word span { font-size: .55rem; letter-spacing: .12em; }
+  .nav-toggle { padding: .35rem .6rem; font-size: .95rem; }
+
+  /* Hero: tighter type and padding so the call to action stays above the fold. */
+  .hero-inner { padding-block: 2.25rem 2.5rem; }
+  .hero .eyebrow { font-size: .7rem; letter-spacing: .08em; margin-bottom: .45rem; }
+  .hero h1 { line-height: 1.08; }
+  .hero p { font-size: 1.05rem; line-height: 1.5; }
+  .hero .btn-row { margin-top: 1.35rem; }
+  .hero .fineprint { margin-top: .9rem; font-size: .88rem; }
+
+  /* Stacked buttons share one width — ragged edges read as a mistake. */
+  .btn-row { flex-direction: column; align-items: stretch; }
+  .btn-row .btn,
+  .center > .btn { width: 100%; }
+
+  /* Centred body copy is hard to read in a narrow column: every line starts in
+     a different place. Headings and their supporting text go flush left. */
+  .section-head.center { text-align: left; }
+  .section-head.center .measure { margin-inline: 0; }
+  .lead { font-size: 1.08em; }
+
+  /* Trust badges become one bordered list rather than four floating cards. */
+  .badges { gap: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+  .badge { border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none; padding: .85rem 1rem; }
+  .badge:first-child { border-top: 0; }
+  .badge .ico { width: 34px; height: 34px; padding: 7px; }
+
+  /* Photos that repeat one already shown a screen earlier. */
+  .hide-sm { display: none; }
+
+  /* The trust line reads as two tidy lines rather than wrapping mid-phrase
+     and stranding a separator at the end of the first one. */
+  .fineprint .sep { display: none; }
+  .fineprint .tel-line { display: block; }
+
+  /* Sections sit closer together — there is less to separate once the
+     copy is flush left and the repeated photo is gone. */
+  .section { padding-block: 2.75rem; }
+}
+
+/* Keeps a phone number from breaking across two lines mid-number. */
+.nowrap, .tel-line { white-space: nowrap; }
