@@ -69,11 +69,11 @@ img { max-width: 100%; height: auto; display: block; }
 a { color: var(--accent); text-decoration-thickness: .08em; text-underline-offset: .15em; }
 a:hover { color: var(--accent-ink); }
 
-h1, h2, h3 { line-height: 1.15; color: var(--brand); margin: 0 0 .5em; letter-spacing: -.01em; }
+h1, h2, h3 { line-height: 1.15; color: var(--brand); margin: 0 0 .5em; letter-spacing: -.01em; text-wrap: balance; }
 h1 { font-size: clamp(2rem, 1.4rem + 3vw, 3.25rem); font-weight: 800; }
 h2 { font-size: clamp(1.6rem, 1.2rem + 2vw, 2.4rem); font-weight: 800; }
 h3 { font-size: clamp(1.2rem, 1.05rem + .8vw, 1.45rem); font-weight: 700; }
-p  { margin: 0 0 1rem; }
+p  { margin: 0 0 1rem; text-wrap: pretty; }
 
 /* Visible keyboard focus everywhere */
 :focus-visible {
@@ -84,7 +84,7 @@ p  { margin: 0 0 1rem; }
 
 /* ---------- Layout helpers ------------------------------------------------ */
 
-.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2rem); }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(1.15rem, 4vw, 2rem); }
 .section   { padding-block: var(--section-y); }
 .section--tint { background: var(--surface); }
 .section--brand {
@@ -269,7 +269,7 @@ p  { margin: 0 0 1rem; }
 .hero { position: relative; color: #fff; isolation: isolate; background-color: #0a1930; }
 .hero::before {
   content: ""; position: absolute; inset: 0; z-index: -2;
-  background-image: url("../images/solar-panel-cleaning.webp");
+  background-image: url("../images/hero-solar-clean.webp");
   background-size: cover; background-position: center;
 }
 .hero::after {
@@ -277,7 +277,7 @@ p  { margin: 0 0 1rem; }
   background: linear-gradient(120deg, rgba(9, 25, 48, .90) 0%, rgba(9, 25, 48, .78) 55%, rgba(9, 25, 48, .60) 100%);
 }
 .hero-inner { padding-block: clamp(3.5rem, 9vw, 7rem); max-width: 42rem; }
-.hero h1 { color: #fff; text-wrap: balance; }
+.hero h1 { color: #fff; }
 .hero p { color: #e6eefb; font-size: 1.2rem; }
 .hero .btn-row { margin-top: 1.6rem; }
 .hero .fineprint { margin-top: 1rem; font-size: .95rem; color: #c7d6ee; }
