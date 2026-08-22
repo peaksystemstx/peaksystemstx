@@ -46,3 +46,32 @@
     if (mq.matches) setOpen(false);
   });
 })();
+
+/* Gallery lightbox — click a thumbnail to see the photo full size.
+   Uses the native <dialog>, so Escape-to-close and the backdrop come free. */
+(function () {
+  "use strict";
+
+  var dialog = document.getElementById("lightbox");
+  var gallery = document.querySelector(".gallery");
+  if (!dialog || !gallery || !dialog.showModal) return;
+
+  var img = dialog.querySelector("img");
+  var cap = dialog.querySelector(".cap");
+
+  gallery.addEventListener("click", function (e) {
+    var shot = e.target.closest(".shot");
+    if (!shot) return;
+    e.preventDefault();  // without JS the link just opens the image file
+    var thumb = shot.querySelector("img");
+    img.src = thumb.src;
+    img.alt = thumb.alt;
+    cap.textContent = shot.querySelector(".cap").textContent;
+    dialog.showModal();
+  });
+
+  dialog.addEventListener("click", function (e) {
+    // Close on the X, or on a click outside the photo itself.
+    if (e.target.closest(".lightbox-close") || !e.target.closest("img")) dialog.close();
+  });
+})();

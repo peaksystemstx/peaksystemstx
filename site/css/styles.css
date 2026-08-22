@@ -352,22 +352,55 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
 
 /* ---------- Gallery ------------------------------------------------------- */
 
+/* Small uniform thumbnails; click one to open it full size in the lightbox.
+   One column on phones, three at tablet width, more as the screen grows. */
 .gallery {
-  display: grid; gap: clamp(.8rem, 2vw, 1.2rem);
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: grid; gap: clamp(.6rem, 1.6vw, 1rem);
+  grid-template-columns: 1fr;
 }
-.gallery figure {
-  margin: 0; background: #fff; border: 1px solid var(--line);
-  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm);
+@media (min-width: 620px)  { .gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1360px) { .gallery { grid-template-columns: repeat(5, 1fr); } }
+
+.shot {
+  display: block; width: 100%; padding: 0; margin: 0; text-align: left;
+  font: inherit; color: inherit; cursor: zoom-in; background: #fff;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .15s ease;
 }
-.gallery img { width: 100%; object-fit: cover; }
-.gallery figcaption {
-  padding: .7rem .9rem; font-size: .92rem; color: var(--muted);
-  border-top: 1px solid var(--line);
+.shot:hover, .shot:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+/* A fixed 3:2 crop keeps the grid tidy. It trims a little from the sides of the
+   16:9 before/after composites and more from the tall in-progress shots — the
+   lightbox shows every one of them uncropped. */
+.shot img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.shot .cap {
+  display: block; padding: .55rem .75rem; font-size: .85rem; line-height: 1.4;
+  color: var(--muted); border-top: 1px solid var(--line);
 }
-/* Wide before/after composites span two columns on larger screens */
-@media (min-width: 720px) {
-  .gallery .wide { grid-column: span 2; }
+
+/* ---------- Lightbox ------------------------------------------------------ */
+
+.lightbox {
+  padding: 0; border: 0; background: transparent;
+  max-width: min(96vw, 1400px); max-height: 94vh;
+}
+.lightbox::backdrop { background: rgba(15, 44, 82, .82); }
+.lightbox img {
+  display: block; max-width: 100%; max-height: 82vh;
+  width: auto; margin: 0 auto; border-radius: var(--radius);
+  background: #fff;
+}
+.lightbox .cap {
+  display: block; margin: .7rem 0 0; text-align: center;
+  color: var(--white); font-size: .95rem;
+}
+.lightbox-close {
+  position: absolute; top: .4rem; right: .4rem;
+  width: 2.4rem; height: 2.4rem; padding: 0; cursor: pointer;
+  font: inherit; font-size: 1.4rem; line-height: 1;
+  color: var(--ink); background: var(--white);
+  border: 0; border-radius: 999px; box-shadow: var(--shadow-md);
 }
 
 /* ---------- Contact ------------------------------------------------------- */
