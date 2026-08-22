@@ -363,17 +363,17 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
 @media (min-width: 1360px) { .gallery { grid-template-columns: repeat(5, 1fr); } }
 
 .shot {
-  display: block; width: 100%; padding: 0; margin: 0; text-align: left;
-  font: inherit; color: inherit; cursor: zoom-in; background: #fff;
+  display: block; width: 100%; min-width: 0; padding: 0; margin: 0; text-align: left;
+  font: inherit; color: inherit; text-decoration: none; cursor: zoom-in; background: #fff;
   border: 1px solid var(--line); border-radius: var(--radius);
   overflow: hidden; box-shadow: var(--shadow-sm);
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .shot:hover, .shot:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-/* A fixed 3:2 crop keeps the grid tidy. It trims a little from the sides of the
-   16:9 before/after composites and more from the tall in-progress shots — the
-   lightbox shows every one of them uncropped. */
-.shot img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+/* 16:9 matches the before/after composites almost exactly, so their BEFORE and
+   AFTER labels survive the crop. The tall in-progress shots lose their top and
+   bottom here — the lightbox shows every photo uncropped. */
+.shot img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .shot .cap {
   display: block; padding: .55rem .75rem; font-size: .85rem; line-height: 1.4;
   color: var(--muted); border-top: 1px solid var(--line);
@@ -391,9 +391,12 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
   width: auto; margin: 0 auto; border-radius: var(--radius);
   background: #fff;
 }
+/* The caption carries its own dark chip so it stays readable over any photo,
+   without depending on the backdrop showing through behind it. */
 .lightbox .cap {
-  display: block; margin: .7rem 0 0; text-align: center;
-  color: var(--white); font-size: .95rem;
+  display: table; margin: .7rem auto 0; padding: .35rem .9rem;
+  color: var(--white); font-size: .95rem; text-align: center;
+  background: rgba(15, 44, 82, .9); border-radius: 999px;
 }
 .lightbox-close {
   position: absolute; top: .4rem; right: .4rem;

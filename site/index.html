@@ -63,7 +63,6 @@
         <li><a href="/" aria-current="page">Home</a></li>
         <li><a href="/why-clean.html">Why Clean?</a></li>
         <li><a href="/services.html">Services</a></li>
-        <li><a href="/work.html">Our Work</a></li>
         <li class="nav-cta"><a class="btn btn--primary" href="sms:+18303087698">Text for a free estimate</a></li>
       </ul>
     </div>
@@ -253,6 +252,48 @@
       </div>
     </section>
 
+    <!-- Our work -->
+    <section class="section section--tint" id="work">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">Our work</p>
+          <h2>Results you can see</h2>
+          <p class="lead measure">A few recent jobs. Tap any photo to see it full size.</p>
+        </div>
+
+        <div class="gallery">
+          <a class="shot" href="/images/solar-panel-cleaning.webp">
+            <img src="/images/solar-panel-cleaning.webp" width="1600" height="908" loading="lazy" alt="Rooftop solar panels side by side — dusty and hazy before cleaning, deep blue and spotless after.">
+            <span class="cap">Solar panel care — before &amp; after</span>
+          </a>
+          <a class="shot" href="/images/solar-cleaning-2.webp">
+            <img src="/images/solar-cleaning-2.webp" width="1600" height="908" loading="lazy" alt="An overhead view of a rooftop solar array, dulled by a grey film of dust before cleaning and evenly dark and reflective after.">
+            <span class="cap">A full rooftop array cleaned — before &amp; after</span>
+          </a>
+          <a class="shot" href="/images/solar-panel-3.webp">
+            <img src="/images/solar-panel-3.webp" width="1600" height="908" loading="lazy" alt="Close view of rooftop panels, filmed over with grey dust before cleaning and deep blue with the cells clearly visible after.">
+            <span class="cap">Dust film lifted off a panel row — before &amp; after</span>
+          </a>
+          <a class="shot" href="/images/solar-panel-4.webp">
+            <img src="/images/solar-panel-4.webp" width="1600" height="908" loading="lazy" alt="Panels staggered across a shingle roof, streaked with water spots and grime before cleaning and uniformly dark after.">
+            <span class="cap">Water spots and grime removed — before &amp; after</span>
+          </a>
+          <a class="shot" href="/images/solar-panel-5.webp">
+            <img src="/images/solar-panel-5.webp" width="1600" height="908" loading="lazy" alt="A backyard-facing solar array clouded with a hazy film before cleaning, then clear with every cell sharply defined after.">
+            <span class="cap">A hazy array cleared — before &amp; after</span>
+          </a>
+          <a class="shot" href="/images/solar-panel-6.webp">
+            <img src="/images/solar-panel-6.webp" width="1600" height="908" loading="lazy" alt="A sunlit roof array with a dull, chalky surface before cleaning and a clean, reflective finish after.">
+            <span class="cap">Chalky buildup washed off — before &amp; after</span>
+          </a>
+        </div>
+
+        <div class="center mt-2">
+          <a class="btn btn--ghost btn--lg" href="/services.html#work">See more of our work</a>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA band -->
     <section class="section section--brand cta-band">
       <div class="container">
@@ -264,6 +305,13 @@
         </div>
       </div>
     </section>
+
+    <!-- Lightbox: one dialog reused for every thumbnail. Filled in by main.js. -->
+    <dialog class="lightbox" id="lightbox" aria-label="Enlarged photo">
+      <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+      <img alt="">
+      <p class="cap"></p>
+    </dialog>
 
   </main>
 
@@ -281,7 +329,6 @@
             <li><a href="/why-clean.html">Why Clean?</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/services.html">Services</a></li>
-            <li><a href="/work.html">Our Work</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
         </nav>

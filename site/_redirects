@@ -2,7 +2,9 @@
 # (Read automatically by Netlify and Cloudflare Pages; harmless on other hosts.)
 #
 # Note: /about, /services and /contact already resolve to about.html etc.
-# automatically, so only the two pages that were renamed need a rule here.
+# automatically. The work gallery now lives in a section on the services page,
+# so the old Our Work URLs point at that anchor.
 
 /home        /            301
-/our-work    /work.html   301
+/our-work    /services.html#work   301
+/work.html   /services.html#work   301
