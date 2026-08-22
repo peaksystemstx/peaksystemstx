@@ -356,15 +356,16 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
 
 /* ---------- Gallery ------------------------------------------------------- */
 
-/* Small uniform thumbnails; click one to open it full size in the lightbox.
-   One column on phones, three at tablet width, more as the screen grows. */
+/* Uniform thumbnails; click one to open it full size in the lightbox. One
+   column on phones, then two and three. Stopping at three keeps each thumbnail
+   around 340px from tablet width up — the container caps at 1120px, so adding
+   a fourth or fifth column made them smaller, not larger. */
 .gallery {
   display: grid; gap: clamp(.6rem, 1.6vw, 1rem);
   grid-template-columns: 1fr;
 }
-@media (min-width: 620px)  { .gallery { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1000px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
-@media (min-width: 1360px) { .gallery { grid-template-columns: repeat(5, 1fr); } }
+@media (min-width: 620px)  { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
 
 .shot {
   display: block; width: 100%; min-width: 0; padding: 0; margin: 0; text-align: left;
