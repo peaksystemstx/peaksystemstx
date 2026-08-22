@@ -352,11 +352,12 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.card img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
-/* The two solar cards pair a 16:9 before/after composite with a 4:3 photo.
-   A 3:2 crop slices the composite's BEFORE and AFTER labels off the ends, so
-   both cards use the wider 16:9 instead and the labels survive. */
-.grid--2 .card img { aspect-ratio: 16 / 9; }
+/* 16:9 fits the wide before/after composites; a narrower crop slices their
+   BEFORE and AFTER labels off the ends. */
+.card img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; }
+/* Composites carry their labels along the top edge — when the crop is
+   vertical (image taller than 16:9), keep the top so the labels survive. */
+.card img.crop-top, .shot img.crop-top { object-position: top; }
 .card-body { padding: 1.2rem 1.3rem 1.4rem; display: flex; flex-direction: column; gap: .4rem; flex: 1; }
 .card-body h3 { margin: 0; display: flex; align-items: center; gap: .55rem; }
 .card-body h3 .ico { width: 1.35rem; height: 1.35rem; color: var(--accent); flex: none; }
@@ -400,9 +401,9 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .shot:hover, .shot:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-/* 16:9 matches the before/after composites almost exactly, so their BEFORE and
-   AFTER labels survive the crop. The tall in-progress shots lose their top and
-   bottom here — the lightbox shows every photo uncropped. */
+/* 16:9 matches the solar composites almost exactly; taller composites get
+   .crop-top so their BEFORE and AFTER labels survive. Other shots lose their
+   top and bottom here — the lightbox shows every photo uncropped. */
 .shot img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .shot .cap {
   display: block; padding: .55rem .75rem; font-size: .85rem; line-height: 1.4;
