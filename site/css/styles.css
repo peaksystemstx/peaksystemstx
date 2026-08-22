@@ -284,6 +284,20 @@ p  { margin: 0 0 1rem; text-wrap: pretty; }
 .hero .btn-row { margin-top: 1.6rem; }
 .hero .fineprint { margin-top: 1rem; font-size: .95rem; color: #c7d6ee; }
 
+/* ---------- Local ownership bar ------------------------------------------- */
+
+.local-bar {
+  background: var(--brand-2);
+  color: #dbe8fa;
+  text-align: center;
+  padding-block: .85rem;
+}
+.local-bar__title {
+  color: #fff; font-weight: 700;
+  font-size: .95rem; letter-spacing: .08em; text-transform: uppercase;
+}
+.local-bar__sub { font-size: .95rem; margin-top: .2rem; }
+
 /* ---------- Trust / feature badges --------------------------------------- */
 
 .badges {
