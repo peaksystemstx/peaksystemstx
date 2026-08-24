@@ -1,4 +1,4 @@
-# peaksystemstx-website
+# peaksystemstx
 
 Static site for Peak Systems, live at `peaksystemstx.com`.
 
