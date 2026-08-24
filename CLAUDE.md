@@ -1,30 +1,16 @@
 # peaksystemstx-website
 
-Static site for Peak Systems. The live site is on Netlify at `peaksystemstx.com`
-and is published by **dragging the `site` folder into Netlify by hand** (see
-`README.md`) — nothing in this repo deploys to production. This repo's GitHub
-Pages deploy is a **preview** copy only.
+Static site for Peak Systems, live at `peaksystemstx.com`.
 
-Preview URL: https://eddie-knight.github.io/peaksystemstx-website/
+**GitHub Pages is production.** Every push to `main` deploys `site/` as-is via
+`.github/workflows/pages.yml`. The domain is served through Cloudflare DNS with
+the custom domain set in the repo's Settings → Pages. There is no build step —
+what's in `site/` is what visitors see. (The old Netlify drag-and-drop flow in
+`README.md` is retired.)
 
-## Changes must reach the preview site for review
+## Pushing = deploying. Ask first, every time.
 
-Eddie reviews changes on the preview site, not in the terminal. A change that
-is only committed locally is not reviewable, so a session that edits the site
-is not done until the preview is live.
-
-**Any time Eddie is in a remote-control session discussing this site:**
-
-1. Commit the change locally.
-2. `git push origin main` — **no permission needed, don't ask.** This repo is
-   an explicit exception to the global no-push rule. `--force` in any form and
-   `gh pr create` still require asking, every time.
-3. Watch the Pages deploy: `gh run watch` (workflow: `pages-preview.yml`).
-4. When it succeeds, send a **push notification** — not just a chat message —
-   with the preview URL. He may have left the session by then.
-
-If the deploy fails, notify with the failure, not silence.
-
-Pushing needs a dedicated passphrase-less deploy key via `core.sshCommand` in
-this repo. If a push fails on auth, that setup is missing — say so rather than
-falling back to the default key.
+Because a push to `main` goes straight to the live site, this repo is **no
+longer** an exception to the global no-push rule (exception revoked 2026-08-23,
+when Pages became production). Commit locally, then ask Eddie before pushing —
+or let him push himself. `--force` and `gh pr create` require asking as always.

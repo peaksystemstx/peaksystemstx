@@ -1,5 +1,11 @@
 # Putting Your Peak Systems Website Online
 
+> **⚠️ This guide is retired (August 2026).** The site now publishes
+> automatically: every push to this repo's `main` branch deploys the `site`
+> folder to GitHub Pages, and `peaksystemstx.com` points there via Cloudflare
+> DNS. Nothing to drag anywhere. The Netlify walkthrough below is kept only
+> for historical reference.
+
 This guide takes you from the website files on your computer to a **live website at
 `peaksystemstx.com`** — replacing your current Squarespace site.
 
